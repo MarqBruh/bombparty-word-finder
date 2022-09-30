@@ -1,4 +1,5 @@
 from operator import contains
+import re
 #from vars import wordlist #not sure if i need this, so i'l just leave it for now :)
 
 words = open("words.txt")
@@ -26,14 +27,22 @@ for word in words:
         longest_word = current_word
     ulc.clear()
 
-print("The best word in your list is " + top_word + " with a ULC of " + str(top_ulc))
+x = input("How many top words do you want to show? ")
+
+if int(x) == 1:
+    print("The best word in your list is " + top_word + " with a ULC of " + str(top_ulc))
+else:
+    print("The " + x + " best words in your list are " + re.sub(r"[\]\['\']",'',str(sorted(dict, key=dict.get, reverse=True)[:int(x)])))
+
 print("The longest word in your list is " + longest_word + " with a length of " + str(len(longest_word)))
 
 search = input("Enter word or 2/3 letter bombparty prompt prefixed by an ! to search: ")
 if search[0] == "!":
+    words = open("words.txt")
     for word in words:
-        if search[1:] in word:
-            print(word)
+        current_word = ''.join(word.splitlines())
+        if search[1:] in current_word:
+            print(current_word)
 else:
     if search in dict:
         search_ulc = dict.get(search)
