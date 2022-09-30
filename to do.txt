@@ -1,0 +1,4 @@
+TO DO LIST FOR FUTURE MARTIN: 
+
+ - Add bombparty prompt search + maybe some other stuff from the scratch version idk
+ - Maybe add cmd line arguments? idk exactly what for tho
