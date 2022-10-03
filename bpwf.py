@@ -36,22 +36,24 @@ else:
 
 print("The longest word in your list is " + longest_word + " with a length of " + str(len(longest_word)))
 
-search = input("Enter word or 2/3 letter bombparty prompt prefixed by an ! to search: ")
-if search[0] == "!":
-    words = open("words.txt")
-    for word in words:
-        current_word = ''.join(word.splitlines())
-        if search[1:] in current_word:
-            print(current_word)
-else:
-    if search in dict:
-        search_ulc = dict.get(search)
-    else:
-        for letter in search:
-            if letter not in ulc:
-                ulc.append(letter)
-            search_ulc = str(len(ulc))
-            search_ulc += " (and isn't in the list btw)"
-        ulc.clear()
+while True:
 
-    print((search.capitalize() + " has a ULC of " + str(search_ulc)))
+    search = input("Enter word or 2/3 letter bombparty prompt prefixed by an ! to search: ")
+    if search[0] == "!":
+        words = open("words.txt")
+        for word in words:
+            current_word = ''.join(word.splitlines())
+            if search[1:] in current_word:
+                print(current_word)
+    else:
+        if search in dict:
+            search_ulc = dict.get(search)
+        else:
+            for letter in search:
+                if letter not in ulc:
+                    ulc.append(letter)
+                search_ulc = str(len(ulc))
+                search_ulc += " (and isn't in the list btw)"
+            ulc.clear()
+    
+        print((search.capitalize() + " has a ULC of " + str(search_ulc)))
