@@ -1,18 +1,18 @@
 from operator import contains
 import os
 
-words = open("words.txt")
 dict = {}
 ulc = []
 
 if not os.path.isfile("ulc_cache.txt"):
-    for word in words:
-        current_word = ''.join(word.splitlines())
-        for letter in current_word:
-            if letter not in ulc:
-                ulc.append(letter)
-            dict[current_word] = len(ulc)          
-        ulc.clear()
+    with open("words.txt") as words:
+        for word in words:
+            current_word = ''.join(word.splitlines())
+            for letter in current_word:
+                if letter not in ulc:
+                    ulc.append(letter)
+                dict[current_word] = len(ulc)          
+            ulc.clear()
 
     ulc_cache = open("ulc_cache.txt", "a+")
 
@@ -33,14 +33,14 @@ with open("ulc_cache.txt") as file:
 while True:
     dict.clear()
     search = input("Enter bombparty prompt or string to find all words containing that string (Sorts by ULC, ascending): ")
-    words = open("words.txt")
-    for word in words:
-        current_word = ''.join(word.splitlines())
-        for letter in current_word:
-            if letter not in ulc:
-                ulc.append(letter)
-            dict[current_word] = len(ulc)          
-        ulc.clear()
+    with open("words.txt") as words:
+        for word in words:
+            current_word = ''.join(word.splitlines())
+            for letter in current_word:
+                if letter not in ulc:
+                    ulc.append(letter)
+                dict[current_word] = len(ulc)          
+            ulc.clear()
 
     for item in (sorted(dict, key=dict.get)):
         if search in item:
