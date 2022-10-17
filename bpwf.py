@@ -1,5 +1,4 @@
 from operator import contains
-import re
 import os
 
 words = open("words.txt")
