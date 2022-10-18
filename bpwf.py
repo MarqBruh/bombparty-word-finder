@@ -4,7 +4,7 @@ dict = {}
 ulc = []
 
 if not os.path.isfile('ulc_cache.txt'):
-    with open('words.txt') as words:
+    with open('words.txt', encoding='utf8') as words:
         for word in words:
             current_word = ''.join(word.splitlines())
             for letter in current_word:
@@ -32,7 +32,7 @@ with open('ulc_cache.txt') as file:
 while True:
     dict.clear()
     search = input('Enter bombparty prompt or string to find all words containing that string (Sorts by ULC, ascending): ')
-    with open('words.txt') as words:
+    with open('words.txt', encoding='utf8') as words:
         for word in words:
             current_word = ''.join(word.splitlines())
             for letter in current_word:
