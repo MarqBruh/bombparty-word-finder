@@ -41,7 +41,7 @@ while True:
     answer = input('What word did you play? ')
     used_words.append(answer)
     for letter in answer:
-        if letter not in used_letters:
+        if letter not in used_letters and letter != 'x' and letter != 'z' and letter != '-':
             used_letters.append(letter)
     used_letters.sort()
     if used_letters == ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'y']:
