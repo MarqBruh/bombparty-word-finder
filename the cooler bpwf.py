@@ -1,4 +1,4 @@
-import os, copy
+import copy
 
 dict = {}
 original_dict = {}
