@@ -1,3 +1,4 @@
+from ast import Str
 import copy
 
 dict = {}
@@ -5,6 +6,7 @@ original_dict = {}
 ulc = []
 used_letters = []
 used_words = []
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'y']
 suggested_word_count = 5
 
 
@@ -44,8 +46,9 @@ while True:
         if letter not in used_letters and letter != 'x' and letter != 'z' and letter != '-':
             used_letters.append(letter)
     used_letters.sort()
-    if used_letters == ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'y']:
+    if used_letters == alphabet:
         used_letters.clear()
         dict = copy.copy(original_dict)
         print('Extra Life!')
-    print(used_letters)
+    print("Used letters: " + str(used_letters))
+    print("Needed letters: " + str([x for x in alphabet if x not in used_letters]))
