@@ -8,7 +8,7 @@ used_letters = []
 used_words = []
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'y']
 suggested_word_count = 5
-
+used_letter_penalty = 0.25
 
 
 with open('words.txt', encoding='utf8') as words:
@@ -26,7 +26,7 @@ while True:
     for word in dict:
         for letter in used_letters:
             if letter in word:
-                dict[word] -= 0.25
+                dict[word] -= used_letter_penalty
     answer = input('Prompt: ')
 
     print('Suggested words:')
