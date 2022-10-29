@@ -24,7 +24,7 @@ while True:
     for word in dict:
         for letter in used_letters:
             if letter in word:
-                dict[word] -= 0.5
+                dict[word] -= 0.25
     answer = input('Prompt: ')
 
     print('Suggested words:')
