@@ -34,7 +34,11 @@ while True:
 
     for word in reversed(sorted(dict, key=dict.get)):
         if answer in word and word not in used_words:
-            print(word)
+            for letter in word:
+                if letter not in ulc and letter not in used_letters and letter != 'x' and letter != 'z' and letter != '-':
+                    ulc.append(letter)
+            print(str(word) + " " + str(sorted(ulc)))
+            ulc.clear()
             counter += 1
             if counter == suggested_word_count:
                 break
