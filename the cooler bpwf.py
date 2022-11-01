@@ -51,7 +51,6 @@ while True:
     used_letters.sort()
     if used_letters == alphabet:
         used_letters.clear()
-        used_words.clear()
         dict = copy.copy(original_dict)
         print('Extra Life!')
     print("Used letters: " + str(used_letters))
